@@ -1,0 +1,26 @@
+body{
+	background-color: black;
+            }
+
+h1 a {
+    color: #FCA205;
+}
+
+.left-slide{
+	float: left;
+	width: 150px;
+	margin: 5px;
+}
+
+.content.container{
+	float: left;
+	width: 800px;
+	margin: 5px;
+}
+
+.right-slide{
+	float: left;
+	margin: 5px;
+}
+
+      

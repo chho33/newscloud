@@ -1,0 +1,43 @@
+{% load staticfiles %}
+{% load dajaxice_templatetags %}
+
+<html>
+    <head>
+        <title><font size="1">News Cloud<font></title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static "css/blog.css" %}">
+        {% dajaxice_js_import %}
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">{% block title %}News Cloud{% endblock %}</a></h1>
+        </div>
+
+        <div class="content container">
+            <div class="row">
+                <div class="main" style="float: left;" style="width:800px">
+                    <p style="float: left;">{{ html_text | safe }}</p>
+                </div>
+                {% block rightsidebar %}
+                <a class="choose" style="float: left;" href="{% url 'get_cloud_today' %}">Today</a>
+                <script type="text/javascript">
+                        function calculate(){
+                            Dajaxice.newsCloud.multiply(Dajax.process,{'a':$('#a').val(),'b':$('#b').val()})
+                        }
+                </script>
+                <button onclick="Dajaxice.News.newsCloud.sayhello(my_js_callback);">Sayhi</button>
+                <input type="text" value="5" id="a"> x
+                <input type="text" value="6" id="b"> =
+                <input type="text" value="" id="result">
+                <input type="button" value="Multiply!" onclick="calculate();">
+                <br>
+                <a class="choose" style="float: left;" href="{% url 'get_cloud_week' %}">Week</a>
+                <br>
+                <a class="choose" style="float: left;" href="{% url 'get_cloud_month' %}">Month</a>
+                {% endblock%}
+            </div>
+        </div>
+    </body>
+</html>

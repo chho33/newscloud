@@ -36,7 +36,7 @@ class Keywords(models.Model):
     class Meta:
         managed = False
         db_table = 'keywords'
-        unique_together = (('id', 'term'),)
+        unique_together = (('keyid', 'term'),)
 
 
 class Lsi(models.Model):
@@ -48,7 +48,7 @@ class Lsi(models.Model):
     class Meta:
         managed = False
         db_table = 'lsi'
-        unique_together = (('id', 'topic'),)
+        unique_together = (('lsiid', 'topic'),)
 
 
 class Lsistatistic(models.Model):
